@@ -13,28 +13,31 @@ class TasksScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 60.0,left: 30.0,right: 30.0,bottom: 30.0),
+            padding: EdgeInsets.only(
+                top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 CircleAvatar(
-                    child: Icon(
-                        Icons.list,
+                  child: Icon(
+                    Icons.list,
                     size: 30.0,
-                        color: Colors.lightBlueAccent,
-                    ),
+                    color: Colors.lightBlueAccent,
+                  ),
                   backgroundColor: Colors.white,
-                    radius: 30.0,
+                  radius: 30.0,
                 ),
                 SizedBox(
                   height: 10.0,
                 ),
-                Text('Todoey',
-                style: TextStyle(
-                  fontSize: 50.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),),
+                Text(
+                  'Todoey',
+                  style: TextStyle(
+                    fontSize: 50.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 Text(
                   '12 Tasks',
                   style: TextStyle(
@@ -42,7 +45,6 @@ class TasksScreen extends StatelessWidget {
                     fontSize: 18,
                   ),
                 ),
-
               ],
             ),
           ),
@@ -54,6 +56,22 @@ class TasksScreen extends StatelessWidget {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
                 ),
+              ),
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    title: Text('this is a task'),
+                    trailing: Checkbox(
+                      value: false,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text('this is a task'),
+                    trailing: Checkbox(
+                      value: false,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
