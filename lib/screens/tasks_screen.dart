@@ -4,17 +4,17 @@ import 'add_task_screen.dart';
 import 'package:todoeynew/models/task.dart';
 
 class TasksScreen extends StatefulWidget {
-
   @override
   _TasksScreenState createState() => _TasksScreenState();
 }
 
 class _TasksScreenState extends State<TasksScreen> {
+  String newTaskTitle;
 
   List<Task> tasks = [
-    Task(name:'Buy milk'),
-    Task(name:'Buy eggs'),
-    Task(name:'Buy bread'),
+    Task(name: 'Buy milk'),
+    Task(name: 'Buy eggs'),
+    Task(name: 'Buy bread'),
   ];
 
   @override
@@ -25,9 +25,23 @@ class _TasksScreenState extends State<TasksScreen> {
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
         onPressed: () {
-          showModalBottomSheet(context: context,
-              isScrollControlled: false,
-              builder: (context) => AddTaskScreen());
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: false,
+            builder: (context) => AddTaskScreen(
+              (newText) {
+                setState(() {
+                  newTaskTitle = newText;
+                });
+              },
+              () {
+                setState(() {
+                  tasks.add(Task(name: newTaskTitle));
+                });
+                Navigator.pop(context);
+              },
+            ),
+          );
         },
       ),
       body: Column(
@@ -87,5 +101,3 @@ class _TasksScreenState extends State<TasksScreen> {
     );
   }
 }
-
-
